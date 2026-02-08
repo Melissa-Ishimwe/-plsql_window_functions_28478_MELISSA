@@ -94,6 +94,7 @@ LIMIT 20;
 <img width="1460" height="362" alt="Inner join" src="https://github.com/user-attachments/assets/3f022912-e8a2-4313-a146-0b0c34b68d7e" />
 
 Business Interpretation:  
+
 This query retrieves all successfully completed transactions, showing which customers bought which products. It helps the sales team understand purchasing patterns and popular product combinations. Only records where matches exist in all four tables are returned, ensuring data integrity.
 
 2. LEFT JOIN - Identify Inactive Customers
@@ -157,6 +158,7 @@ Business Interpretation:
 This self-join identifies customers within the same geographic region, enabling targeted regional marketing campaigns and referral programs.
 
  Part B: Window Functions Implementation (Step 5)
+ 
  Category 1: Ranking Functions
  SELECT 
     p.category,
@@ -169,10 +171,11 @@ GROUP BY p.category, p.product_name
 ORDER BY p.category, product_rank
 LIMIT 20;
 <img width="1430" height="354" alt="RANK" src="https://github.com/user-attachments/assets/9c5f0fb5-bc38-4de7-b432-a5cdc5d5b4b5" />
-Interpretation:  
+Interpretation: 
 RANK assigns the same rank to products with equal revenue but creates gaps in the sequence (1, 2, 2, 4). This is ideal when you want to recognize ties but also show how many items performed better. Each product category is ranked independently using PARTITION BY.
 
 Category 2: Aggregate Window Functions
+
 2.1 Running Total with SUM() OVER - ROWS Frame
 SELECT 
     DATE_TRUNC('month', o.order_date) AS order_month,
@@ -256,7 +259,7 @@ Temporal Trends:
 
 Declaration of Original Work
 
-I, [Your Full Name], hereby declare that:
+I, Melissa ISHIMWE, hereby declare that:
 
 1. All SQL queries, database design, and analytical work presented in this project represent my original work and understanding.
 
