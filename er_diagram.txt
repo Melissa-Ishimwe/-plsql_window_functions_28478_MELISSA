@@ -1,0 +1,75 @@
+E-COMMERCE DATABASE - ENTITY RELATIONSHIP DIAGRAM
+==================================================
+
+┌─────────────────────┐
+│     CUSTOMERS       │
+├─────────────────────┤
+│ PK customer_id      │
+│    customer_name    │
+│    email (UNIQUE)   │
+│    region           │
+│    registration_date│
+│    customer_segment │
+└──────────┬──────────┘
+           │
+           │ 1
+           │
+           │ Placed by
+           │
+           │ M
+           ▼
+┌─────────────────────┐
+│      ORDERS         │
+├─────────────────────┤
+│ PK order_id         │
+│ FK customer_id      │
+│    order_date       │
+│    total_amount     │
+│    order_status     │
+└──────────┬──────────┘
+           │
+           │ 1
+           │
+           │ Contains
+           │
+           │ M
+           ▼
+┌─────────────────────┐
+│   ORDER_ITEMS       │
+├─────────────────────┤
+│ PK order_item_id    │
+│ FK order_id         │
+│ FK product_id       │
+│    quantity         │
+│    item_price       │
+└──────────┬──────────┘
+           │
+           │ M
+           │
+           │ References
+           │
+           │ 1
+           ▼
+┌─────────────────────┐
+│     PRODUCTS        │
+├─────────────────────┤
+│ PK product_id       │
+│    product_name     │
+│    category         │
+│    unit_price       │
+│    stock_quantity   │
+└─────────────────────┘
+
+RELATIONSHIPS:
+==============
+1. CUSTOMERS 1:M ORDERS
+   - One customer can place many orders
+   - Each order belongs to exactly one customer
+
+2. ORDERS 1:M ORDER_ITEMS
+   - One order contains many line items
+   - Each line item belongs to exactly one order
+
+3. PRODUCTS 1:M ORDER_ITEMS
+   - One product can appear in many order items
+   - Each line item references exactly one product
