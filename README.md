@@ -63,6 +63,21 @@ The project aims to achieve five measurable analytical goals:
 
 
 
+       3. Database Schema & ER Diagram (Step 3)
+       <img width="1400" height="900" alt="ERD_Ecommerce" src="https://github.com/user-attachments/assets/34b24bfc-09d6-429a-8232-3cf90a6bf1a5" />
+       Database Environment
+       DBMS: PostgreSQL.
+
+        Hosting Platform: Supabase (Cloud-hosted PostgreSQL instance).
+
+        Connection Type: Cloud-hosted SQL Editor.
+
+  
+
+
+
+
+
 
 
 
