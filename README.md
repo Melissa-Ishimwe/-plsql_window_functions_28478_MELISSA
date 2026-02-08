@@ -72,29 +72,6 @@ The project aims to achieve five measurable analytical goals:
 
         Connection Type: Cloud-hosted SQL Editor.
 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 4. Part A: SQL JOINS Implementation (Step 4)
 1. INNER JOIN - Retrieve Active Customer Orders
