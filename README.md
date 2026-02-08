@@ -1,4 +1,4 @@
-Property Portfolio Analytics: SQL JOINS & Window Functions Project
+# **Property Portfolio Analytics: SQL JOINS & Window Functions Project**
 
 Course: Database Development with PL/SQL (INSY 8311) Instructor: Eric Maniraguha Student Name: Melissa Ishimwe Student ID: 28478
 
