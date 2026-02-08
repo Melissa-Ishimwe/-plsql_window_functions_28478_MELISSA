@@ -105,8 +105,9 @@ This query retrieves all successfully completed transactions, showing which cust
 Business Interpretation:
 This analysis identifies dormant customers who registered but never completed a purchase. These are prime candidates for re-engagement campaigns via email marketing or special promotional offers. The LEFT JOIN ensures all customers appear in results, even those without matching orders.
 
- 3. RIGHT JOIN - Detect Unsold Products
-    SELECT 
+ **3. RIGHT JOIN - Detect Unsold Products**
+ 
+   SELECT 
     p.product_id,
     p.product_name,
     p.category,
@@ -122,7 +123,8 @@ ORDER BY p.category, p.product_name;
 Business Interpretation:  
 This query reveals products with zero sales activity, indicating potential inventory problems. These items may be overpriced, poorly marketed, or obsolete. Management can decide whether to discount, bundle, or discontinue these products to free up warehouse space and capital.
 
-4. FULL OUTER JOIN - Compare Customer and Product Activity
+**4. FULL OUTER JOIN - Compare Customer and Product Activity**
+
    SELECT 
     c.customer_id,
     c.customer_name,
@@ -142,7 +144,8 @@ ORDER BY c.customer_id, p.product_id;
 Business Interpretation:
 FULL OUTER JOIN reveals gaps in our data ecosystem by showing both orphaned customers (no orders) and orphaned products (no sales). This comprehensive view helps identify data quality issues and business opportunities simultaneously, ensuring no entity is overlooked in strategic planninG
 
-5. SELF JOIN - Compare Customers in Same Region
+**5. SELF JOIN - Compare Customers in Same Region**
+
 SELECT 
     c1.customer_id AS customer1_id,
     c1.customer_name AS customer1_name,
@@ -159,9 +162,10 @@ LIMIT 50;
 Business Interpretation:  
 This self-join identifies customers within the same geographic region, enabling targeted regional marketing campaigns and referral programs.
 
- Part B: Window Functions Implementation (Step 5)
+ ## Part B: Window Functions Implementation (Step 5)
  
- Category 1: Ranking Functions
+ **Category 1: Ranking Functions**
+ 
  SELECT 
     p.category,
     p.product_name,
@@ -176,7 +180,7 @@ LIMIT 20;
 Interpretation: 
 RANK assigns the same rank to products with equal revenue but creates gaps in the sequence (1, 2, 2, 4). This is ideal when you want to recognize ties but also show how many items performed better. Each product category is ranked independently using PARTITION BY.
 
-Category 2: Aggregate Window Functions
+## Category 2: Aggregate Window Functions
 
 2.1 Running Total with SUM() OVER - ROWS Frame
 SELECT 
@@ -192,10 +196,11 @@ GROUP BY DATE_TRUNC('month', o.order_date)
 ORDER BY order_month;
 <img width="1458" height="360" alt="aggregate function sum and over" src="https://github.com/user-attachments/assets/4ccb0373-e819-4785-a1b3-456eb149a8f0" />
 
-Interpretation:
+**Interpretation:**
 This running total shows cumulative revenue growth month by month. ROWS UNBOUNDED PRECEDING includes all rows from the beginning up to the current row. Essential for tracking progress toward annual sales targets and visualizing growth trajectories.
 
- Category 3: Navigation Functions
+ ## Category 3: Navigation Functions
+ 
  3.1 LAG() - Month-over-Month Growth
  SELECT 
     DATE_TRUNC('month', o.order_date) AS order_month,
@@ -216,7 +221,9 @@ WHERE o.order_status = 'Completed'
 GROUP BY DATE_TRUNC('month', o.order_date)
 ORDER BY order_month;
 <img width="1435" height="352" alt="LAG" src="https://github.com/user-attachments/assets/e3640e6a-4ea3-4e81-8c92-e690831cb0f3" />
-Interpretation:  
+
+**Interpretation:**
+
 LAG accesses the previous row's value, enabling period-over-period comparisons. This calculates actual growth rates, distinguishing between strong months (positive growth) and weak months (negative growth). Critical for performance dashboards and executive reports.
 
 4.2 CUME_DIST() - Cumulative Distribution
@@ -231,37 +238,38 @@ FROM products p
 ORDER BY p.category, p.unit_price;
 <img width="1467" height="347" alt="Distribution function CUME_DIST()" src="https://github.com/user-attachments/assets/73d11fe8-7237-44f3-9a0a-97605bd6b57c" />
 
-Interpretation: 
+**Interpretation:**
+
 CUME_DIST returns the percentage of values less than or equal to the current value. A product at 0.75 is priced higher than 75% of products in its category. This helps identify budget vs. premium positioning within each category.
 
 
- Results Analysis STEP7
+ ## Results Analysis STEP7
 
  Descriptive Analysis - What Happened?
 
-Sales Performance Overview:
+**Sales Performance Overview:**
 - Total monthly revenue ranges from $45,000 to $78,000 with an average of $62,500
 - Top 3 product categories by revenue: Electronics (42%), Fashion (33%), Home Goods (25%)
 - Customer base: 45% Africa, 35% Europe, 20% Asia
 - 15% of registered customers have never made a purchase
 - 8% of products in inventory have never been sold
 
-Customer Segmentation Results:
+**Customer Segmentation Results:**
 - Premium Segment (Q1): 25% of customers generate 65% of total revenue
 - High-Value Segment (Q2): 25% of customers contribute 22% of revenue
 - Standard Segment (Q3): 25% of customers account for 10% of revenue
 - Budget Segment (Q4): 25% of customers represent only 3% of revenue
 
-Temporal Trends:
+**Temporal Trends:**
 - Month-over-month growth varied from -8% to +15%
 - Q4 2025 showed strongest performance (holiday season effect)
 - January 2026 experienced 12% decline (typical post-holiday dip)
 
- Academic Integrity Statement STEP 8
+ ## Academic Integrity Statement STEP 8
 
-Declaration of Original Work
+## Declaration of Original Work
 
-I, Melissa ISHIMWE, hereby declare that:
+I, **Melissa ISHIMWE**, hereby declare that:
 
 1. All SQL queries, database design, and analytical work presented in this project represent my original work and understanding.
 
