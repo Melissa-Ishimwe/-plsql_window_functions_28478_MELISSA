@@ -1,17 +1,17 @@
 # **Property Portfolio Analytics: SQL JOINS & Window Functions Project**
 
-Course: Database Development with PL/SQL (INSY 8311) Instructor: Eric Maniraguha Student Name: Melissa Ishimwe Student ID: 28478
+**Course**: Database Development with PL/SQL (INSY 8311) Instructor: Eric Maniraguha Student Name: Melissa Ishimwe Student ID: 28478
 
- Business Problem Definition
+ ## Business Problem Definition(step2)
 
  Business Context
-Company: GlobalMart E-Commerce Platform  
+Company: **GlobalMart E-Commerce Platform**  
 Department:Sales Analytics & Business Intelligence  
 Industry:Online Retail
 
 GlobalMart is a multi-regional e-commerce platform selling consumer electronics, fashion, and home goods across Africa, Europe, and Asia. The company has experienced rapid growth with over 50,000 customers and processes approximately 5,000 orders monthly.
 
- Data Challenge
+ **Data Challenge**
 The Sales Analytics team faces difficulties in:
 - Identifying underperforming products and regions that need marketing intervention
 - Understanding customer purchasing behavior and lifetime value segmentation
@@ -19,7 +19,7 @@ The Sales Analytics team faces difficulties in:
 - Detecting inventory issues where products have no sales activity
 - Comparing regional performance to optimize resource allocation
 
- Expected Outcome
+ **Expected Outcome**
 Develop a comprehensive SQL-based analytical framework that enables:
 1. Product Performance Ranking:Identify top-selling products per region and quarter
 2. Customer Segmentation: Categorize customers into quartiles based on total spending
@@ -29,7 +29,7 @@ Develop a comprehensive SQL-based analytical framework that enables:
 
 
 
-Success Criteria
+## Success Criteria(step2)
 
 The project aims to achieve five measurable analytical goals:
 
@@ -63,7 +63,8 @@ The project aims to achieve five measurable analytical goals:
 
 
 
-       3. Database Schema & ER Diagram (Step 3)
+       ## Database Schema & ER Diagram (Step 3)
+     
        <img width="1400" height="900" alt="ERD_Ecommerce" src="https://github.com/user-attachments/assets/34b24bfc-09d6-429a-8232-3cf90a6bf1a5" />
        Database Environment
        DBMS: PostgreSQL.
@@ -73,9 +74,9 @@ The project aims to achieve five measurable analytical goals:
         Connection Type: Cloud-hosted SQL Editor.
 
 
-4. Part A: SQL JOINS Implementation (Step 4)
+## Part A: SQL JOINS Implementation (Step 4)
    
-1. INNER JOIN - Retrieve Active Customer Orders
+**1. INNER JOIN - Retrieve Active Customer Orders**
 
    SELECT 
     o.order_id,
@@ -98,7 +99,7 @@ Business Interpretation:
 
 This query retrieves all successfully completed transactions, showing which customers bought which products. It helps the sales team understand purchasing patterns and popular product combinations. Only records where matches exist in all four tables are returned, ensuring data integrity.
 
-2. LEFT JOIN - Identify Inactive Customers
+**2. LEFT JOIN - Identify Inactive Customers**
 <img width="1449" height="354" alt="left join" src="https://github.com/user-attachments/assets/f22ba0f3-536a-4434-99dc-e7928c5b607b" />
 
 Business Interpretation:
