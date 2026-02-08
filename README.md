@@ -66,7 +66,8 @@ The project aims to achieve five measurable analytical goals:
        ## Database Schema & ER Diagram (Step 3)
      
        <img width="1400" height="900" alt="ERD_Ecommerce" src="https://github.com/user-attachments/assets/34b24bfc-09d6-429a-8232-3cf90a6bf1a5" />
-       Database Environment
+       
+       **Database Environment**
        DBMS: PostgreSQL.
 
         Hosting Platform: Supabase (Cloud-hosted PostgreSQL instance).
@@ -95,14 +96,15 @@ ORDER BY o.order_date DESC
 LIMIT 20;
 <img width="1460" height="362" alt="Inner join" src="https://github.com/user-attachments/assets/3f022912-e8a2-4313-a146-0b0c34b68d7e" />
 
-Business Interpretation:  
+**Business Interpretation:****  
 
 This query retrieves all successfully completed transactions, showing which customers bought which products. It helps the sales team understand purchasing patterns and popular product combinations. Only records where matches exist in all four tables are returned, ensuring data integrity.
 
 **2. LEFT JOIN - Identify Inactive Customers**
 <img width="1449" height="354" alt="left join" src="https://github.com/user-attachments/assets/f22ba0f3-536a-4434-99dc-e7928c5b607b" />
 
-Business Interpretation:
+**Business Interpretation:**
+
 This analysis identifies dormant customers who registered but never completed a purchase. These are prime candidates for re-engagement campaigns via email marketing or special promotional offers. The LEFT JOIN ensures all customers appear in results, even those without matching orders.
 
  **3. RIGHT JOIN - Detect Unsold Products**
@@ -120,7 +122,9 @@ GROUP BY p.product_id, p.product_name, p.category, p.unit_price, p.stock_quantit
 HAVING COALESCE(SUM(oi.quantity), 0) = 0
 ORDER BY p.category, p.product_name;
 <img width="1462" height="370" alt="right join" src="https://github.com/user-attachments/assets/f17f6a79-6f29-49bb-af22-cdc3d3c0a69d" />
-Business Interpretation:  
+
+**Business Interpretation:**
+
 This query reveals products with zero sales activity, indicating potential inventory problems. These items may be overpriced, poorly marketed, or obsolete. Management can decide whether to discount, bundle, or discontinue these products to free up warehouse space and capital.
 
 **4. FULL OUTER JOIN - Compare Customer and Product Activity**
@@ -141,7 +145,7 @@ WHERE c.customer_id IS NULL OR p.product_id IS NULL
 ORDER BY c.customer_id, p.product_id;
 <img width="1461" height="328" alt="full outer join" src="https://github.com/user-attachments/assets/6e9e246d-6e17-4848-a1cd-3b3fc186affb" />
 
-Business Interpretation:
+**Business Interpretation:**
 FULL OUTER JOIN reveals gaps in our data ecosystem by showing both orphaned customers (no orders) and orphaned products (no sales). This comprehensive view helps identify data quality issues and business opportunities simultaneously, ensuring no entity is overlooked in strategic planninG
 
 **5. SELF JOIN - Compare Customers in Same Region**
@@ -159,7 +163,8 @@ INNER JOIN customers c2
 ORDER BY c1.region, c1.customer_name
 LIMIT 50;
 <img width="1435" height="332" alt="self join" src="https://github.com/user-attachments/assets/3a1e2843-8e05-49f7-b57f-e392baa7d0bd" />
-Business Interpretation:  
+
+**Business Interpretation:**  
 This self-join identifies customers within the same geographic region, enabling targeted regional marketing campaigns and referral programs.
 
  ## Part B: Window Functions Implementation (Step 5)
@@ -177,7 +182,8 @@ GROUP BY p.category, p.product_name
 ORDER BY p.category, product_rank
 LIMIT 20;
 <img width="1430" height="354" alt="RANK" src="https://github.com/user-attachments/assets/9c5f0fb5-bc38-4de7-b432-a5cdc5d5b4b5" />
-Interpretation: 
+
+**Interpretation:** 
 RANK assigns the same rank to products with equal revenue but creates gaps in the sequence (1, 2, 2, 4). This is ideal when you want to recognize ties but also show how many items performed better. Each product category is ranked independently using PARTITION BY.
 
 ## Category 2: Aggregate Window Functions
