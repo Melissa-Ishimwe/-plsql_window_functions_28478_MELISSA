@@ -74,6 +74,7 @@ The project aims to achieve five measurable analytical goals:
 
 
 4. Part A: SQL JOINS Implementation (Step 4)
+   
 1. INNER JOIN - Retrieve Active Customer Orders
 
    SELECT 
